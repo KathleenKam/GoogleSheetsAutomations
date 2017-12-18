@@ -1,6 +1,6 @@
 # Taken List and Player Contact Automation
 
-This script was coded for easing up the procedure of entering and removing new data from a list of predetermined signups. Initially, an HTML template for each player/character entry had to be copied, with each new detail manually inputted. With this script, all the user has to do is to input data in a spreadsheet, and the script converts the data into its HTML/displayable equivalent.
+This script was coded for easing up the procedure of entering and removing new data from a list of predetermined signups. Initially, an HTML template for each player/character entry had to be copied, with each new detail manually inputted. With this script, all the user has to do is to input data in a spreadsheet, and the script converts the data into its HTML/displayable equivalent. Note that the HTML code has been optimized for display in Dreamwidth and may display differently in other websites.
 
 A live preview/copyable implementation of the spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/1cdgOA4xHuRRbQAvPhOh99tmjXiihMmYaCVe-8JHb_Xs/edit?usp=sharing).
 
