@@ -1,0 +1,34 @@
+<? 
+var CANON_INDEX = 0;
+var NAME_INDEX = 1;
+var JOURNAL_INDEX = 2;
+var PLAYER_INDEX = 3;
+var ALIGNMENT_INDEX = 4;
+var PROFILE_INDEX = 5;
+var ICON_INDEX = 6;
+var COLOR_INDEX = 7;
+
+var dataCnt = 0;
+
+var rawData = getData(); ?>
+
+<raw-code>
+<table align="center" style="width: 700px; margin: 0px auto; text-align: left; border-collapse: collapse;">
+<? for (var i = 0; i < rawData.length; i++) { ?>
+<!--CANON START-->
+<? if (rawData[i].sortCriteria != "") { dataCnt = 0; ?><tr style="border-bottom: 1px #8A6E4C dotted;"><td style="width: 700px; padding-top:20px;" colspan="3"><br><br><span style="font-size:20px; letter-spacing:2px; font-weight: bold; text-transform: uppercase;">? <?= rawData[i].sortCriteria ?></span></td></tr><tr><td height="4" colspan="3"></td></tr><? } ?>
+<? for (var j = 0; j < rawData[i].data.length; j++) { ?>
+  <? if (dataCnt == 0) { ?> <tr> <? } ?>
+    <!--CHARACTER START-->
+    <td style="width:220px; padding-top: 10px;"><img src="<?= rawData[i].data[j][ICON_INDEX] ?>" style="width:50px; height: 50px; z-index: 1; display: inline-block; border-radius: 50px;">
+    <div style="width: 200px; height:50px; padding-left: 60px; text-align: left; margin-top:-53px;-webkit-margin-before:-54px;">
+    <div style="background: <?= rawData[i].data[j][COLOR_INDEX] ?>; padding-left:30px; margin-left:-30px;"><a href="http://<?= rawData[i].data[j][JOURNAL_INDEX] ?>.dreamwidth.org" style="text-decoration: none; font-size:15px; font-weight: bold;"><span style="color: #000; font-family: Calibri;"><?= rawData[i].data[j][NAME_INDEX] ?></span></a></div>
+    <span style="font-size:10px;"><?= rawData[i].data[j][ALIGNMENT_INDEX] ?> ? <?= rawData[i].data[j][PLAYER_INDEX] ?> ? <a href="<?= rawData[i].data[j][PROFILE_INDEX] ?>" style="text-decoration: none;"><span style="color:#000;">Profile</a></span></td>
+    </div>
+    <!--CHARACTER END-->
+  <? if (dataCnt == 2) { ?> </tr> <? dataCnt = 0; } else { dataCnt++; } ?>
+  <? } ?>
+<!--CANON END-->
+<? } ?>
+</table>
+</raw-code>

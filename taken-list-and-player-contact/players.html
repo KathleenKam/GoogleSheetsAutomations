@@ -1,0 +1,67 @@
+<? 
+var CANON_INDEX = 0;
+var NAME_INDEX = 1;
+var JOURNAL_INDEX = 2;
+var PLAYER_INDEX = 3;
+var ALIGNMENT_INDEX = 4;
+var PROFILE_INDEX = 5;
+var ICON_INDEX = 6;
+var COLOR_INDEX = 7;
+
+var EMAIL_INDEX = 1;
+var PLURK_INDEX = 2;
+var DISCORD_INDEX = 3;
+var SKYPE_INDEX = 4;
+var GCHAT_INDEX = 5;
+var AIM_INDEX = 6;
+var TIMEZONE_INDEX = 7;
+
+var dataCnt = 0;
+
+var rawData = getPlayerData(); ?>
+<center><table style="font-family:calibri; font-size:10pt; text-align:left; border-collapse:collapse;">
+<tr><td width="550"></td>
+<td width="300"></td>
+<td width="25"></td></tr>
+
+<!-- Mods -->
+<tr style="vertical-align:top; border-bottom:4px solid #0F214A;">
+<td style="line-height:normal; padding:5px;" colspan="3"><font style="font-family:calibri; font-size:18pt; text-transform: uppercase;">MODERATORS</font></td></tr>
+<? for (var i = 0; i < 4; i++) { ?>
+<tr style="vertical-align:top; border-bottom:1px solid #b6c4c6;">
+<td style="line-height:normal; padding:5px;" colspan="3"><font style="font-family:calibri; font-size:14pt; text-transform: uppercase;"><?= rawData[i].sortCriteria ?></font></td></tr>
+<tr style="vertical-align:top;">
+<td><? for (var j = 0; j < rawData[i].characterData.length; j++) { ?>
+» <?= rawData[i].characterData[j][NAME_INDEX] ?> | <?= rawData[i].characterData[j][CANON_INDEX] ?> | <user name="<?= rawData[i].characterData[j][JOURNAL_INDEX] ?>"><br>
+<? } ?>
+</td>
+<td><? if (rawData[i].playerData[EMAIL_INDEX] != "") { ?>EMAIL: <?= rawData[i].playerData[EMAIL_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[PLURK_INDEX] != "") { ?>PLURK: <user name="<?= rawData[i].playerData[PLURK_INDEX] ?>" site="plurk.com"><br><? } ?>
+<? if (rawData[i].playerData[DISCORD_INDEX] != "") { ?>DISCORD: <?= rawData[i].playerData[DISCORD_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[SKYPE_INDEX] != "") { ?>SKYPE: <?= rawData[i].playerData[SKYPE_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[GCHAT_INDEX] != "") { ?>GCHAT: <?= rawData[i].playerData[GCHAT_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[AIM_INDEX] != "") { ?>AIM: <?= rawData[i].playerData[AIM_INDEX] ?><br><? } ?></td>
+<td><?= rawData[i].playerData[TIMEZONE_INDEX] ?></td></tr>
+<tr><td colspan="4" height="10"></td></tr>
+<? } ?>
+
+<!-- Players -->
+<tr><td style="background: #0F214A; height: 2px;" colspan="3"></td></tr>
+<? for (var i = 4; i < rawData.length; i++) { ?>
+<tr style="vertical-align:top; border-bottom:1px solid #0F214A;">
+<td style="line-height:normal; padding:5px;" colspan="3"><font style="font-family:calibri; font-size:14pt; text-transform: uppercase;"><?= rawData[i].sortCriteria ?></font></td></tr>
+<tr style="vertical-align:top;">
+<td><? for (var j = 0; j < rawData[i].characterData.length; j++) { ?>
+» <?= rawData[i].characterData[j][NAME_INDEX] ?> | <?= rawData[i].characterData[j][CANON_INDEX] ?> | <user name="<?= rawData[i].characterData[j][JOURNAL_INDEX] ?>"><br>
+<? } ?>
+</td>
+<td><? if (rawData[i].playerData[EMAIL_INDEX] != "") { ?>EMAIL: <?= rawData[i].playerData[EMAIL_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[PLURK_INDEX] != "") { ?>PLURK: <user name="<?= rawData[i].playerData[PLURK_INDEX] ?>" site="plurk.com"><br><? } ?>
+<? if (rawData[i].playerData[DISCORD_INDEX] != "") { ?>DISCORD: <?= rawData[i].playerData[DISCORD_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[SKYPE_INDEX] != "") { ?>SKYPE: <?= rawData[i].playerData[SKYPE_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[GCHAT_INDEX] != "") { ?>GCHAT: <?= rawData[i].playerData[GCHAT_INDEX] ?><br><? } ?>
+<? if (rawData[i].playerData[AIM_INDEX] != "") { ?>AIM: <?= rawData[i].playerData[AIM_INDEX] ?><br><? } ?></td>
+<td><?= rawData[i].playerData[TIMEZONE_INDEX] ?></td></tr>
+<tr><td colspan="4" height="10"></td></tr>
+<? } ?>
+</table></center>
